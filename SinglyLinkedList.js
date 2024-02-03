@@ -77,6 +77,17 @@ class SinglyLinkedList {
         this.length++
         return this
     }
+
+    get (index) {
+        if (index < 0 || index >= this.length) return null
+        let curIndex = 0
+        let curNode = this.head
+        while (index !== curIndex) {
+            curNode = curNode.next
+            curIndex++
+        }
+        return curNode
+    }
 }
 
 const list = new SinglyLinkedList()
