@@ -97,15 +97,24 @@ class SinglyLinkedList {
         }
         return false
     }
+
+    insert (value, index) {
+        if (index < 0 || index > this.length) return false
+        if (index === 0) return !!this.unshift(value)
+        if (index === this.length) return !!this.push(value)
+        const newNode = new Node(value)
+        const preNode = this.get(index - 1)
+        const nextNode = preNode.next
+        preNode.next = newNode
+        newNode.next = nextNode
+        this.length++
+        return true
+    }
 }
 
 const list = new SinglyLinkedList()
 list.push("Hii")
 list.push("There!")
 list.push("blaaa")
-
-list.pop()
-list.pop()
-list.pop()
 
 console.log(list)
