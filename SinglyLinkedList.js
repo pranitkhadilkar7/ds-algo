@@ -88,6 +88,15 @@ class SinglyLinkedList {
         }
         return curNode
     }
+
+    set (value, index) {
+        const node = this.get(index)
+        if (node) {
+            node.value = value
+            return true
+        }
+        return false
+    }
 }
 
 const list = new SinglyLinkedList()
