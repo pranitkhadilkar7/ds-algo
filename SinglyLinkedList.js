@@ -121,6 +121,20 @@ class SinglyLinkedList {
         this.length--
         return node
     }
+
+    reverse () {
+        let prevNode = null
+        let curNode = this.head
+        let nextNode = null
+        this.head = this.tail
+        this.tail = curNode
+        while (!!curNode) {
+            nextNode = curNode.next
+            curNode.next = prevNode
+            prevNode = curNode
+            curNode = nextNode
+        }
+    }
 }
 
 const list = new SinglyLinkedList()
