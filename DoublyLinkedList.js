@@ -72,6 +72,34 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+
+    #getWithForwardTraversal (index) {
+        let curNode = this.head
+        let counter = 0
+        while (index !== counter) {
+            curNode = curNode.next
+            counter++
+        }
+        return curNode
+    }
+
+    #getWithBackwardTraversal (index) {
+        let curNode = this.tail
+        let counter = this.length - 1
+        while (index !== counter) {
+            curNode = curNode.prev
+            counter--
+        }
+        return curNode
+    }
+
+    get (index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index < (this.length/2)) {
+            return this.#getWithForwardTraversal(index)
+        }
+        return this.#getWithBackwardTraversal(index)
+    }
 }
 
 const list = new DoublyLinkedList()
