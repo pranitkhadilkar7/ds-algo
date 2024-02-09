@@ -100,6 +100,15 @@ class DoublyLinkedList {
         }
         return this.#getWithBackwardTraversal(index)
     }
+
+    set (val, index) {
+        const node = this.get(index)
+        if (!!node) {
+            node.value = val
+            return true
+        }
+        return false
+    }
 }
 
 const list = new DoublyLinkedList()
