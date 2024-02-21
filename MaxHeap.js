@@ -22,7 +22,7 @@ class MaxBinaryHeap {
 
         const max = this.values[0]
         const end = this.values.pop()
-        if (!this.values.length) return undefined
+        if (!this.values.length) return max
 
         this.values[0] = end
         let length = this.values.length
