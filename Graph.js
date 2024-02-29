@@ -44,6 +44,47 @@ class Graph {
         traverse(start)
         return result
     }
+
+    DFSIterative (start) {
+        const result = []
+        const visited = {}
+        const stack = [start]
+        let currentVertex
+
+        visited[start] = true
+
+        while (stack.length) {
+            currentVertex = stack.pop()
+            result.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach(el => {
+                if (!visited[el]) {
+                    visited[el] = true
+                    stack.push(el)
+                }
+            })
+        }
+        return result
+    }
+
+    BFS (start) {
+        const result = []
+        const visited = []
+        const queue = [start]
+        let currentVertex
+        visited[start] = true
+
+        while (queue.length) {
+            currentVertex = queue.shift()
+            result.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach(el => {
+                if (!visited[el]) {
+                    visited[el] = true
+                    queue.push(el)
+                }
+            })
+        }
+        return result
+    }
 }
 
 const graph = new Graph()
