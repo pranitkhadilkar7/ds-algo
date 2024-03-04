@@ -58,8 +58,6 @@ class WeightedGraph {
                     smallest = previous[smallest]
                 }
                 break
-                // WE ARE DONE
-                // BUILD UP PATH TO RETURN AT END
             }
 
             if (smallest || distances[smallest] !== Infinity) {
